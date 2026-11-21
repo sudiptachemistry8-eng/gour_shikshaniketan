@@ -1,667 +1,75 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Gour Shikshaniketan — Gobindapur, Goghat, Hooghly. School information, notices, admission and parent services.">
 <title>Gour Shikshaniketan | Official Website</title>
-<meta name="description" content="Gour Shikshaniketan, Gobindapur, Hooghly. A Bengali Medium Primary School.">
-
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --navy: #12365a;
-  --blue: #1769aa;
-  --teal: #078b91;
-  --gold: #f5b942;
-  --light: #f3f7fc;
-  --text: #29384a;
-  --white: #ffffff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 85px;
-}
-
-body {
-  font-family: 'Hind Siliguri', sans-serif;
-  color: var(--text);
-  background: var(--light);
-  line-height: 1.7;
-}
-
-a {
-  text-decoration: none;
-}
-
-.topbar {
-  background: var(--navy);
-  color: white;
-  text-align: center;
-  padding: 8px 12px;
-  font-size: 13px;
-}
-
-header {
-  background: white;
-  padding: 15px 6%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo {
-  width: 82px;
-  height: 82px;
-  flex-shrink: 0;
-  background: white;
-  border: 2px solid #e4eaf2;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.brand h1 {
-  font-family: Poppins, sans-serif;
-  color: var(--navy);
-  font-size: 21px;
-  line-height: 1.4;
-}
-
-.brand p {
-  color: #68788a;
-  font-size: 13px;
-}
-
-nav {
-  background: var(--navy);
-  padding: 12px 5%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-}
-
-nav a {
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-nav a:hover {
-  color: var(--gold);
-}
-
-.hero {
-  min-height: 430px;
-  background: linear-gradient(120deg, #102c50, #087e91);
-  display: flex;
-  align-items: center;
-  padding: 65px 8%;
-  color: white;
-}
-
-.hero-content {
-  max-width: 720px;
-}
-
-.hero-tag {
-  color: var(--gold);
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.hero h2 {
-  font-family: Poppins, sans-serif;
-  font-size: clamp(30px, 5vw, 49px);
-  line-height: 1.3;
-  margin: 18px 0;
-}
-
-.hero p {
-  font-size: 19px;
-  color: #e5f1fa;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--navy);
-  padding: 12px 25px;
-  border-radius: 7px;
-  font-weight: 700;
-  margin-top: 25px;
-}
-
-.section {
-  padding: 65px 7%;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.section-title span {
-  color: var(--teal);
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.section-title h2 {
-  color: var(--navy);
-  font-size: 30px;
-  margin-top: 5px;
-}
-
-.about {
-  background: white;
-}
-
-.about-content {
-  max-width: 850px;
-  margin: auto;
-  text-align: center;
-  font-size: 18px;
-}
-
-.about-content p {
-  margin-bottom: 12px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 28px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,.06);
-  border-bottom: 4px solid var(--teal);
-}
-
-.card-icon {
-  font-size: 38px;
-}
-
-.card h3 {
-  color: var(--navy);
-  margin: 10px 0;
-}
-
-.notice-section {
-  background: white;
-}
-
-.notice-list {
-  max-width: 850px;
-  margin: auto;
-  display: grid;
-  gap: 16px;
-}
-
-.notice-item {
-  background: #f8fbff;
-  border-radius: 10px;
-  padding: 20px;
-  border-left: 5px solid var(--teal);
-  box-shadow: 0 4px 15px rgba(0,0,0,.06);
-}
-
-.notice-item h3 {
-  color: var(--navy);
-  font-size: 19px;
-  margin-bottom: 5px;
-}
-
-.notice-date {
-  color: #68788a;
-  font-size: 13px;
-}
-
-.notice-item p {
-  margin-top: 8px;
-}
-
-.notice-download {
-  display: inline-block;
-  background: var(--navy);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 5px;
-  margin-top: 12px;
-  font-size: 14px;
-}
-
-.notice-empty {
-  text-align: center;
-  background: #f8fbff;
-  padding: 30px;
-  border-radius: 10px;
-  color: #68788a;
-}
-
-.gallery {
-  background: var(--light);
-}
-
-.gallery-box {
-  background: white;
-  border-radius: 12px;
-  padding: 35px;
-  text-align: center;
-  border: 1px dashed #aab9c9;
-}
-
-.gallery-box .icon {
-  font-size: 48px;
-}
-
-.admission {
-  background: var(--navy);
-  color: white;
-  text-align: center;
-}
-
-.admission h2 {
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-.contact {
-  background: white;
-  text-align: center;
-}
-
-.contact h3 {
-  color: var(--navy);
-  font-size: 22px;
-}
-
-.contact p {
-  margin-top: 8px;
-}
-
-footer {
-  background: #0b233d;
-  color: #dce7f2;
-  text-align: center;
-  padding: 30px 15px;
-  font-size: 14px;
-}
-
-footer h3 {
-  color: white;
-  margin-bottom: 8px;
-}
-
-@media(max-width:600px) {
-  header {
-    padding: 13px;
-  }
-
-  .logo {
-    width: 65px;
-    height: 65px;
-  }
-
-  .brand h1 {
-    font-size: 15px;
-  }
-
-  .brand p {
-    font-size: 11px;
-  }
-
-  nav {
-    gap: 10px 17px;
-    padding: 13px 8px;
-  }
-
-  nav a {
-    font-size: 13px;
-  }
-
-  .hero {
-    min-height: 350px;
-    padding: 45px 7%;
-  }
-
-  .section {
-    padding: 45px 6%;
-  }
-
-  .section-title h2 {
-    font-size: 25px;
-  }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div class="topbar">
-  গৌর শিক্ষানিকেতন | Gobindapur, Hooghly
-</div>
-
-<header>
+<header class="top">
   <div class="brand">
-    <div class="logo">
-      <img src="school-logo.jpeg" alt="Gour Shikshaniketan Logo">
-    </div>
-    <div>
-      <h1>GOUR SHIKSHANIKETAN</h1>
-      <p>Learning Today, Leading Tomorrow</p>
-      <p>গোবিন্দপুর, হুগলি</p>
-    </div>
+    <img src="assets/school-logo.jpg" alt="Gour Shikshaniketan logo" onerror="this.style.display='none'">
+    <div><strong>GOUR SHIKSHANIKETAN</strong><small data-bn="গোবিন্দপুর, গোঘাট, হুগলি" data-en="Gobindapur, Goghat, Hooghly">গোবিন্দপুর, গোঘাট, হুগলি</small></div>
   </div>
+  <button id="langBtn" class="lang" type="button">English</button>
 </header>
-
-<nav>
-  <a href="#home">হোম</a>
-  <a href="#about">আমাদের বিদ্যালয়</a>
-  <a href="#academics">পাঠক্রম</a>
-  <a href="#notice">নোটিশ</a>
-  <a href="#gallery">গ্যালারি</a>
-  <a href="#admission">ভর্তি</a>
-  <a href="#contact">যোগাযোগ</a>
+<nav class="nav">
+ <a href="#home" data-bn="হোম" data-en="Home">হোম</a><a href="#about" data-bn="পরিচিতি" data-en="About">পরিচিতি</a>
+ <a href="#academics" data-bn="শিক্ষাব্যবস্থা" data-en="Academics">শিক্ষাব্যবস্থা</a><a href="#notices" data-bn="নোটিশ" data-en="Notices">নোটিশ</a>
+ <a href="#admission" data-bn="ভর্তি" data-en="Admission">ভর্তি</a><a href="#parents" data-bn="অভিভাবক কর্নার" data-en="Parent Corner">অভিভাবক কর্নার</a><a href="#contact" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
 </nav>
-
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-tag">WELCOME TO OUR SCHOOL</div>
-    <h2>একটি উজ্জ্বল ভবিষ্যতের সূচনা এখানেই</h2>
-    <p>
-      শিক্ষা, শৃঙ্খলা, সৃজনশীলতা ও নৈতিক মূল্যবোধের
-      মাধ্যমে প্রতিটি শিশুর সর্বাঙ্গীণ বিকাশই আমাদের লক্ষ্য।
-    </p>
-    <a class="btn" href="#about">আমাদের সম্পর্কে জানুন →</a>
-  </div>
+<main>
+<section id="home" class="hero">
+ <div class="hero-copy"><span class="eyebrow" data-bn="শিক্ষাই আলোর পথ" data-en="Education lights the way">শিক্ষাই আলোর পথ</span>
+ <h1 data-bn="GOUR SHIKSHANIKETAN" data-en="GOUR SHIKSHANIKETAN">GOUR SHIKSHANIKETAN</h1>
+ <p data-bn="শিশুর আনন্দময় শিখন, মূল্যবোধ ও সর্বাঙ্গীণ বিকাশে আমাদের অঙ্গীকার।" data-en="Committed to joyful learning, strong values and the all-round development of every child.">শিশুর আনন্দময় শিখন, মূল্যবোধ ও সর্বাঙ্গীণ বিকাশে আমাদের অঙ্গীকার।</p>
+ <div class="actions"><a class="btn primary" href="#notices" data-bn="সর্বশেষ নোটিশ" data-en="Latest Notices">সর্বশেষ নোটিশ</a><a class="btn light" href="#admission" data-bn="ভর্তি সংক্রান্ত তথ্য" data-en="Admission Information">ভর্তি সংক্রান্ত তথ্য</a></div></div>
+ <div class="hero-card"><div class="round">GS</div><h2 data-bn="Nursery থেকে Class IV" data-en="Nursery to Class IV">Nursery থেকে Class IV</h2><p data-bn="বাংলা মাধ্যম · প্রাথমিক শিক্ষা" data-en="Bengali Medium · Primary Education">বাংলা মাধ্যম · প্রাথমিক শিক্ষা</p></div>
 </section>
-
-<section class="section about" id="about">
-  <div class="section-title">
-    <span>WHO WE ARE</span>
-    <h2>আমাদের বিদ্যালয় সম্পর্কে</h2>
-  </div>
-
-  <div class="about-content">
-    <p>
-      গৌর শিক্ষানিকেতন একটি বাংলা মাধ্যমের প্রাথমিক বিদ্যালয়।
-      Nursery থেকে Class IV পর্যন্ত শিক্ষার্থীদের মানসম্মত শিক্ষা,
-      নৈতিক মূল্যবোধ, শৃঙ্খলা এবং সৃজনশীলতার বিকাশে আমরা প্রতিশ্রুতিবদ্ধ।
-    </p>
-    <p>
-      পরিচালনায়: Gobindapur Gourhari Welfare Society
-    </p>
-    <p>
-      ঠিকানা: Gobindapur, Hooghly, West Bengal
-    </p>
-  </div>
+<section id="about" class="section"><div class="section-head"><span>01 / ABOUT</span><h2 data-bn="আমাদের বিদ্যালয়" data-en="About Our School">আমাদের বিদ্যালয়</h2></div>
+<p data-bn="গৌর শিক্ষানিকেতন একটি বেসরকারি প্রাথমিক শিক্ষাপ্রতিষ্ঠান। বিদ্যালয়টি Gobindapur Gourhari Welfare Society দ্বারা পরিচালিত। Nursery থেকে Class IV পর্যন্ত শিশুদের প্রাথমিক শিক্ষার ভিত্তি মজবুত করা এবং নিরাপদ, সহায়ক ও আনন্দময় শিক্ষার পরিবেশ গড়ে তোলাই আমাদের লক্ষ্য।"
+data-en="Gour Shikshaniketan is a private unaided primary school managed by Gobindapur Gourhari Welfare Society. The school serves Nursery to Class IV, with a focus on foundational learning and a safe, supportive and joyful learning environment.">গৌর শিক্ষানিকেতন একটি বেসরকারি প্রাথমিক শিক্ষাপ্রতিষ্ঠান। বিদ্যালয়টি Gobindapur Gourhari Welfare Society দ্বারা পরিচালিত। Nursery থেকে Class IV পর্যন্ত শিশুদের প্রাথমিক শিক্ষার ভিত্তি মজবুত করা এবং নিরাপদ, সহায়ক ও আনন্দময় শিক্ষার পরিবেশ গড়ে তোলাই আমাদের লক্ষ্য।</p>
+<div class="facts"><div><b>Nursery – IV</b><span data-bn="শ্রেণি" data-en="Classes">শ্রেণি</span></div><div><b>10:35 AM – 2:45 PM</b><span data-bn="বিদ্যালয়ের সময় (প্রচলিত তথ্য)" data-en="School hours (published profile)">বিদ্যালয়ের সময় (প্রচলিত তথ্য)</span></div><div><b>Gobindapur</b><span data-bn="গোঘাট, হুগলি" data-en="Goghat, Hooghly">গোঘাট, হুগলি</span></div></div>
 </section>
-
-<section class="section" id="academics">
-  <div class="section-title">
-    <span>OUR EDUCATION</span>
-    <h2>আমাদের শিক্ষাক্রম</h2>
-  </div>
-
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">🧸</div>
-      <h3>নার্সারি</h3>
-      <p>খেলাধুলা ও আনন্দের মাধ্যমে প্রাথমিক শিক্ষা।</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">📚</div>
-      <h3>প্রাথমিক বিভাগ</h3>
-      <p>প্রথম শ্রেণি থেকে চতুর্থ শ্রেণি পর্যন্ত শিক্ষা।</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🎨</div>
-      <h3>সৃজনশীল শিক্ষা</h3>
-      <p>আঁকা, গান, সংস্কৃতি ও বিভিন্ন কার্যক্রম।</p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🌱</div>
-      <h3>সর্বাঙ্গীণ বিকাশ</h3>
-      <p>আত্মবিশ্বাস, শৃঙ্খলা ও নৈতিক মূল্যবোধের বিকাশ।</p>
-    </div>
-  </div>
+<section id="academics" class="section tinted"><div class="section-head"><span>02 / ACADEMICS</span><h2 data-bn="শিক্ষাব্যবস্থা" data-en="Academics">শিক্ষাব্যবস্থা</h2></div>
+<div class="cards"><article><h3 data-bn="প্রাথমিক ভিত্তি" data-en="Foundational Learning">প্রাথমিক ভিত্তি</h3><p data-bn="ভাষা, গণিত ও পরিবেশ-পরিচিতির মৌলিক দক্ষতা বিকাশ।" data-en="Building core skills in language, mathematics and environmental awareness.">ভাষা, গণিত ও পরিবেশ-পরিচিতির মৌলিক দক্ষতা বিকাশ।</p></article>
+<article><h3 data-bn="সহ-পাঠ্যক্রম" data-en="Co-curricular Activities">সহ-পাঠ্যক্রম</h3><p data-bn="আঁকা, সংগীত, নৃত্য, খেলাধুলা ও সৃজনশীল কাজে অংশগ্রহণ।" data-en="Opportunities in art, music, dance, sports and creative activities.">আঁকা, সংগীত, নৃত্য, খেলাধুলা ও সৃজনশীল কাজে অংশগ্রহণ।</p></article>
+<article><h3 data-bn="মূল্যায়ন" data-en="Assessment">মূল্যায়ন</h3><p data-bn="শিক্ষার্থীর অগ্রগতি পর্যবেক্ষণ ও নিয়মিত মূল্যায়ন।" data-en="Regular assessment and monitoring of each learner's progress.">শিক্ষার্থীর অগ্রগতি পর্যবেক্ষণ ও নিয়মিত মূল্যায়ন।</p></article></div>
 </section>
-
-<section class="section notice-section" id="notice">
-  <div class="section-title">
-    <span>IMPORTANT UPDATES</span>
-    <h2>📢 নোটিশ বোর্ড</h2>
-    <p>বিদ্যালয়ের সর্বশেষ বিজ্ঞপ্তি</p>
-  </div>
-
-  <div id="noticeList" class="notice-list">
-    <div class="notice-empty">নোটিশ লোড হচ্ছে...</div>
-  </div>
+<section id="notices" class="section"><div class="section-head"><span>03 / NOTICE BOARD</span><h2 data-bn="নোটিশ বোর্ড" data-en="Notice Board">নোটিশ বোর্ড</h2></div>
+<p class="muted" data-bn="বিদ্যালয়ের অনুমোদিত নোটিশ, বিজ্ঞপ্তি ও গুরুত্বপূর্ণ ঘোষণা এখানে প্রকাশিত হবে।" data-en="Official school notices, announcements and important updates are published here.">বিদ্যালয়ের অনুমোদিত নোটিশ, বিজ্ঞপ্তি ও গুরুত্বপূর্ণ ঘোষণা এখানে প্রকাশিত হবে।</p>
+<div class="notice-tools">
+  <input id="noticeSearch" type="search" placeholder="নোটিশ খুঁজুন / Search notices" aria-label="Search notices">
+  <select id="noticeCategory" aria-label="Filter notices">
+    <option value="all">সব নোটিশ / All categories</option>
+    <option value="general">সাধারণ / General</option>
+    <option value="exam">পরীক্ষা / Examination</option>
+    <option value="holiday">ছুটি / Holiday</option>
+    <option value="admission">ভর্তি / Admission</option>
+    <option value="event">অনুষ্ঠান / Event</option>
+  </select>
+</div>
+<div id="noticeCount" class="notice-count" aria-live="polite"></div>
+<div id="noticeList" class="notice-list"><p>নোটিশ লোড হচ্ছে…</p></div>
 </section>
-
-<section class="section gallery" id="gallery">
-  <div class="section-title">
-    <span>OUR MEMORIES</span>
-    <h2>বিদ্যালয়ের চিত্রগ্যালারি</h2>
-  </div>
-
-  <div class="gallery-box">
-    <div class="icon">📸</div>
-    <h3>আমাদের বিদ্যালয়ের কার্যক্রম</h3>
-    <p>বিদ্যালয়ের বিভিন্ন অনুষ্ঠান, সাংস্কৃতিক কার্যক্রম ও শিক্ষামূলক ছবিগুলি এখানে প্রকাশ করা হবে।</p>
-  </div>
+<section id="admission" class="section tinted"><div class="section-head"><span>04 / ADMISSION</span><h2 data-bn="ভর্তি সংক্রান্ত তথ্য" data-en="Admission Information">ভর্তি সংক্রান্ত তথ্য</h2></div>
+<p data-bn="ভর্তি, বয়স, প্রয়োজনীয় নথি ও আসনসংক্রান্ত তথ্য জানতে বিদ্যালয়ের অফিসে যোগাযোগ করুন। অনলাইন আবেদন ফর্ম চালু হলে এখানে তার লিংক যুক্ত করা হবে।" data-en="For admission, age criteria, required documents and seat availability, contact the school office. The online application link will be added here when activated.">ভর্তি, বয়স, প্রয়োজনীয় নথি ও আসনসংক্রান্ত তথ্য জানতে বিদ্যালয়ের অফিসে যোগাযোগ করুন। অনলাইন আবেদন ফর্ম চালু হলে এখানে তার লিংক যুক্ত করা হবে।</p>
+<a class="btn primary" id="admissionLink" href="mailto:gobindapurghws@gmail.com?subject=Admission%20Enquiry" data-bn="ভর্তি সম্পর্কে ইমেল করুন" data-en="Email an Admission Enquiry">ভর্তি সম্পর্কে ইমেল করুন</a>
 </section>
-
-<section class="section admission" id="admission">
-  <h2>ভর্তি সংক্রান্ত তথ্য</h2>
-  <p>
-    Nursery থেকে Class IV পর্যন্ত ভর্তি সংক্রান্ত
-    তথ্যের জন্য বিদ্যালয়ের অফিসে যোগাযোগ করুন।
-  </p>
-  <a class="btn" href="#contact">যোগাযোগ করুন</a>
+<section id="parents" class="section"><div class="section-head"><span>05 / PARENT CORNER</span><h2 data-bn="অভিভাবক কর্নার" data-en="Parent Corner">অভিভাবক কর্নার</h2></div>
+<div class="cards"><article><h3 data-bn="ছুটির আবেদন" data-en="Leave Application">ছুটির আবেদন</h3><p data-bn="অনুপস্থিতির কারণ জানাতে বিদ্যালয়ের নির্ধারিত আবেদনপদ্ধতি অনুসরণ করুন।" data-en="Use the school's designated process to report a student's absence.">অনুপস্থিতির কারণ জানাতে বিদ্যালয়ের নির্ধারিত আবেদনপদ্ধতি অনুসরণ করুন।</p><a class="text-link" href="mailto:gobindapurghws@gmail.com?subject=Student%20Leave">Contact office →</a></article>
+<article><h3 data-bn="অভিভাবকের মতামত" data-en="Parent Feedback">অভিভাবকের মতামত</h3><p data-bn="পরামর্শ বা সমস্যা জানাতে বিদ্যালয়ের অফিসিয়াল ইমেলে লিখুন।" data-en="Share suggestions or concerns through the official school email.">পরামর্শ বা সমস্যা জানাতে বিদ্যালয়ের অফিসিয়াল ইমেলে লিখুন।</p><a class="text-link" href="mailto:gobindapurghws@gmail.com?subject=Parent%20Feedback">Send feedback →</a></article>
+<article><h3 data-bn="ডিজিটাল সহায়তা" data-en="Digital Help">ডিজিটাল সহায়তা</h3><p data-bn="ওয়েবসাইট বা অনলাইন ফর্মে সমস্যা হলে অফিসে জানান।" data-en="Contact the office if you face issues with the website or online forms.">ওয়েবসাইট বা অনলাইন ফর্মে সমস্যা হলে অফিসে জানান।</p><a class="text-link" href="mailto:gobindapurghws@gmail.com">Get help →</a></article></div>
 </section>
-
-
-<section class="section contact" id="contact">
-
-  <div class="section-title">
-    <span>GET IN TOUCH</span>
-    <h2>যোগাযোগ করুন</h2>
-    <p>বিদ্যালয় সংক্রান্ত যেকোনো তথ্যের জন্য যোগাযোগ করুন</p>
-  </div>
-
-  <h3>GOUR SHIKSHANIKETAN</h3>
-  <p>Gobindapur, Hooghly, West Bengal</p>
-  <p>পরিচালনায়: Gobindapur Gourhari Welfare Society</p>
-
-  <div class="cards" style="margin-top:30px">
-
-    <div class="card">
-      <div class="card-icon">👨‍🏫</div>
-      <h3>মোহনলাল মণ্ডল</h3>
-      <p>প্রধান শিক্ষক</p>
-      <a href="tel:8900010956"
-      style="color:#078b91;font-weight:bold">
-      ☎ 8900010956
-      </a>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">📞</div>
-      <h3>দিলীপ কুমার সিং</h3>
-      <p>যোগাযোগ</p>
-      <a href="tel:9002845367"
-      style="color:#078b91;font-weight:bold">
-      ☎ 9002845367
-      </a>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">📞</div>
-      <h3>সুদীপ্ত সিং</h3>
-      <p>যোগাযোগ</p>
-      <a href="tel:9564903707"
-      style="color:#078b91;font-weight:bold">
-      ☎ 9564903707
-      </a>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">📞</div>
-      <h3>নানুরাম রায়</h3>
-      <p>যোগাযোগ</p>
-      <a href="tel:8972268939"
-      style="color:#078b91;font-weight:bold">
-      ☎ 8972268939
-      </a>
-    </div>
-
-  </div>
-
-  <div style="
-    background:#eaf3fc;
-    padding:25px;
-    border-radius:12px;
-    margin-top:30px;
-    text-align:center;
-  ">
-
-    <h3>📧 বিদ্যালয়ের Email Address</h3>
-
-    <a href="mailto:gobindapurghws@gmail.com"
-    style="
-      color:#12365a;
-      font-weight:bold;
-      font-size:16px;
-      word-break:break-word;
-    ">
-    gobindapurghws@gmail.com
-    </a>
-
-  </div>
-
+<section id="contact" class="section contact"><div class="section-head"><span>06 / CONTACT</span><h2 data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</h2></div>
+<p><b>GOUR SHIKSHANIKETAN</b><br>Gobindapur, Goghat, Hooghly, West Bengal – 712602</p>
+<p><b data-bn="প্রধান শিক্ষক" data-en="Head Teacher">প্রধান শিক্ষক</b>: Mohanlal Mandal · <a href="tel:8900010956">8900010956</a></p>
+<p><b data-bn="যোগাযোগ" data-en="School Contact">যোগাযোগ</b>: <a href="tel:9564903707">9564903707</a> · <a href="tel:9002845367">9002845367</a></p>
+<p><b>Email:</b> <a href="mailto:gobindapurghws@gmail.com">gobindapurghws@gmail.com</a></p>
+<a class="btn light" href="https://www.google.com/maps/search/?api=1&query=Gour+Shikshaniketan+Gobindapur+Goghat+Hooghly" target="_blank" rel="noopener" data-bn="ম্যাপে দেখুন" data-en="View on Map">ম্যাপে দেখুন</a>
 </section>
-
-  <div class="section-title">
-    <span>GET IN TOUCH</span>
-    <h2>যোগাযোগ</h2>
-  </div>
-
-  <h3>GOUR SHIKSHANIKETAN</h3>
-  <p>Gobindapur, Hooghly, West Bengal</p>
-  <p>পরিচালনায়: Gobindapur Gourhari Welfare Society</p>
-  <p>ভর্তি ও বিদ্যালয় সংক্রান্ত তথ্যের জন্য বিদ্যালয় অফিসে যোগাযোগ করুন।</p>
-</section>
-
-<footer>
-  <h3>GOUR SHIKSHANIKETAN</h3>
-  <p>Learning Today, Leading Tomorrow</p>
-  <p>Gobindapur, Hooghly</p>
-  <p>© 2026 Gour Shikshaniketan. All Rights Reserved.</p>
-</footer>
-
-<script>
-
-// ====================================
-// SCHOOL NOTICE MANAGEMENT
-// নতুন নোটিশ এখানে যোগ করবেন
-// ====================================
-
-const notices = [
-  // নমুনা:
-  // {
-  //   title: "বার্ষিক পরীক্ষার বিজ্ঞপ্তি",
-  //   date: "25/11/2026",
-  //   description: "বার্ষিক পরীক্ষার সময়সূচি প্রকাশ করা হয়েছে।",
-  //   file: "annual-exam.pdf"
-  // }
-];
-
-function showNotices() {
-
-  const noticeList = document.getElementById("noticeList");
-
-  noticeList.innerHTML = "";
-
-  if (notices.length === 0) {
-    const empty = document.createElement("div");
-    empty.className = "notice-empty";
-    empty.textContent = "বর্তমানে কোনো নোটিশ প্রকাশিত হয়নি।";
-    noticeList.appendChild(empty);
-    return;
-  }
-
-  notices.forEach(function(notice) {
-
-    const card = document.createElement("div");
-    card.className = "notice-item";
-
-    const title = document.createElement("h3");
-    title.textContent = "📌 " + notice.title;
-
-    const date = document.createElement("div");
-    date.className = "notice-date";
-    date.textContent = "প্রকাশের তারিখ: " + notice.date;
-
-    const description = document.createElement("p");
-    description.textContent = notice.description;
-
-    card.appendChild(title);
-    card.appendChild(date);
-    card.appendChild(description);
-
-    if (notice.file) {
-
-      const link = document.createElement("a");
-
-      link.className = "notice-download";
-      link.href = notice.file;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.textContent = "📄 PDF দেখুন / Download";
-
-      card.appendChild(link);
-    }
-
-    noticeList.appendChild(card);
-
-  });
-}
-
-showNotices();
-
-</script>
-
-</body>
-</html>
+</main>
+<footer><strong>GOUR SHIKSHANIKETAN</strong><p>Managed by Gobindapur Gourhari Welfare Society</p><small>© <span id="year"></span> Gour Shikshaniketan. All rights reserved.</small></footer>
+<script src="script.js"></script>
+</body></html>
