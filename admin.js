@@ -78,7 +78,7 @@ function render() {
 }
 
 function reset() {
-  $("noticeForm").reset();
+  HTMLFormElement.prototype.reset.call($("noticeForm"));
   $("editId").value = "";
   $("date").value = new Date().toISOString().slice(0, 10);
   $("formHeading").textContent = "নতুন নোটিশ";
