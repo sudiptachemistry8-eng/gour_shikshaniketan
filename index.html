@@ -8,6 +8,54 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+.notice-list {
+  max-width: 850px;
+  margin: auto;
+  display: grid;
+  gap: 15px;
+}
+
+.notice-item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 5px solid #078b91;
+  box-shadow: 0 4px 15px rgba(0,0,0,.06);
+}
+
+.notice-item h3 {
+  color: #12365a;
+  margin-bottom: 7px;
+  font-size: 19px;
+}
+
+.notice-item p {
+  margin: 7px 0;
+}
+
+.notice-date {
+  color: #68788a;
+  font-size: 13px;
+}
+
+.notice-download {
+  display: inline-block;
+  background: #12365a;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.notice-empty {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  color: #68788a;
+}
+
 <style>
 :root {
   --navy: #12365a;
@@ -300,6 +348,63 @@ footer h3 {
 </style>
 </head>
 
+<script>
+
+const notices = [
+  // নতুন নোটিশ এখানে যোগ করবেন
+];
+
+const noticeList = document.getElementById("noticeList");
+
+function showNotices() {
+
+  noticeList.innerHTML = "";
+
+  if (notices.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "notice-empty";
+    empty.textContent = "বর্তমানে কোনো নোটিশ প্রকাশিত হয়নি।";
+    noticeList.appendChild(empty);
+    return;
+  }
+
+  notices.forEach(notice => {
+
+    const card = document.createElement("div");
+    card.className = "notice-item";
+
+    const heading = document.createElement("h3");
+    heading.textContent = "📌 " + notice.title;
+
+    const date = document.createElement("p");
+    date.className = "notice-date";
+    date.textContent = "প্রকাশের তারিখ: " + notice.date;
+
+    const description = document.createElement("p");
+    description.textContent = notice.description;
+
+    card.appendChild(heading);
+    card.appendChild(date);
+    card.appendChild(description);
+
+    if (notice.file) {
+      const link = document.createElement("a");
+      link.className = "notice-download";
+      link.href = notice.file;
+      link.textContent = "📄 PDF Download";
+      link.setAttribute("download", "");
+      card.appendChild(link);
+    }
+
+    noticeList.appendChild(card);
+
+  });
+}
+
+showNotices();
+
+</script>
+
 <body>
 
 <div class="topbar">
@@ -388,7 +493,21 @@ Welcome to Gour Shikshaniketan | Nursery to Class IV
   </div>
 </section>
 
+
 <section class="section notice-section" id="notice">
+
+  <div class="section-title">
+    <span>IMPORTANT UPDATES</span>
+    <h2>📢 নোটিশ বোর্ড</h2>
+    <p>বিদ্যালয়ের সর্বশেষ বিজ্ঞপ্তি</p>
+  </div>
+
+  <div id="noticeList" class="notice-list">
+    <p>নোটিশ লোড হচ্ছে...</p>
+  </div>
+
+</section>
+
   <div class="section-title">
     <span>STAY UPDATED</span>
     <h2>Notice Board</h2>
