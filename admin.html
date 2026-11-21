@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>নোটিশ ব্যবস্থাপনা | Gour Shikshaniketan</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <p class="eyebrow">GOUR SHIKSHANIKETAN</p>
+      <h1>ডিজিটাল নোটিশ বোর্ড ব্যবস্থাপনা</h1>
+      <p class="lede">নোটিশ তৈরি বা বদলান, তারপর <strong>notices.json</strong> ডাউনলোড করে GitHub-এ আপলোড করুন।</p>
+      <p class="warning">এই পেজটি GitHub Pages-এ সরাসরি নোটিশ প্রকাশ করতে পারে না। প্রকাশের জন্য আপনার GitHub অ্যাকাউন্টে সাইন-ইন করে ফাইলটি Commit করতে হবে।</p>
+    </header>
+
+    <section class="toolbar" aria-label="নোটিশ টুল">
+      <button id="newNotice" class="button primary" type="button">+ নতুন নোটিশ</button>
+      <button id="downloadJson" class="button" type="button">notices.json ডাউনলোড</button>
+      <label class="button file-button">JSON আমদানি<input id="importJson" type="file" accept="application/json,.json" hidden></label>
+      <button id="clearDraft" class="button danger" type="button">লোকাল খসড়া মুছুন</button>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section class="layout">
+      <aside class="panel notice-panel">
+        <div class="panel-title"><h2>নোটিশ তালিকা</h2><span id="noticeTotal">0</span></div>
+        <div id="noticeList" class="notice-list" aria-label="নোটিশ তালিকা"></div>
+      </aside>
+
+      <section class="panel editor-panel">
+        <h2 id="formTitle">নতুন নোটিশ</h2>
+        <form id="noticeForm">
+          <input id="noticeId" type="hidden">
+          <div class="grid">
+            <label>তারিখ<input id="date" type="date" required></label>
+            <label>বিভাগ
+              <select id="category" required>
+                <option value="general">সাধারণ</option><option value="exam">পরীক্ষা</option><option value="holiday">ছুটি</option><option value="admission">ভর্তি</option><option value="event">অনুষ্ঠান</option>
+              </select>
+            </label>
+          </div>
+          <label class="check"><input id="pinned" type="checkbox"> গুরুত্বপূর্ণ নোটিশ হিসেবে উপরে রাখুন</label>
+          <label>বাংলা শিরোনাম<input id="titleBn" maxlength="180" required></label>
+          <label>ইংরেজি শিরোনাম <span class="optional">(না থাকলে বাংলা লেখা দেখাবে)</span><input id="titleEn" maxlength="180"></label>
+          <label>বাংলা বিবরণ<textarea id="bodyBn" rows="5" maxlength="2000" required></textarea></label>
+          <label>ইংরেজি বিবরণ <span class="optional">(ঐচ্ছিক)</span><textarea id="bodyEn" rows="5" maxlength="2000"></textarea></label>
+          <label>ফাইল/পিডিএফ লিংক <span class="optional">(ঐচ্ছিক; যেমন: assets/notices/example.pdf)</span><input id="file" type="text" maxlength="500" placeholder="assets/notices/notice.pdf"></label>
+          <div class="form-actions"><button class="button primary" type="submit">খসড়ায় সংরক্ষণ</button><button id="resetForm" class="button" type="button">ফর্ম পরিষ্কার</button><button id="deleteNotice" class="button danger" type="button" hidden>এই নোটিশ মুছুন</button></div>
+        </form>
+      </section>
+    </section>
+
+    <section class="howto">
+      <h2>প্রকাশের সংক্ষিপ্ত ধাপ</h2>
+      <ol><li><strong>notices.json ডাউনলোড</strong> চাপুন।</li><li>GitHub-এ <code>gour_shikshaniketan</code> রিপোজিটরি খুলুন।</li><li>মূল (root) ফোল্ডারের পুরনো <code>notices.json</code> Replace করুন।</li><li><strong>Commit changes</strong> চাপুন। GitHub Pages সাধারণত কিছুক্ষণের মধ্যে নতুন নোটিশ দেখাবে।</li></ol>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
