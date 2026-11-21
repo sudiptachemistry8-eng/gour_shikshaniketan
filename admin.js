@@ -1,42 +1,11 @@
-(() => {
-  "use strict";
-  const STORAGE_KEY = "gour-notice-admin-draft-v1";
-  const allowedCategories = new Set(["general", "exam", "holiday", "admission", "event"]);
-  const $ = id => document.getElementById(id);
-  const form = $("noticeForm");
-  let notices = [];
-
-  const today = () => new Date().toISOString().slice(0, 10);
-  const cleanText = value => String(value || "").trim();
-  const safeNotice = value => {
-    if (!value || typeof value !== "object") return null;
-    const date = /^\d{4}-\d{2}-\d{2}$/.test(value.date || "") ? value.date : today();
-    const titleBn = cleanText(value.title_bn);
-    const bodyBn = cleanText(value.body_bn);
-    if (!titleBn || !bodyBn) return null;
-    return { date, category: allowedCategories.has(value.category) ? value.category : "general", pinned: Boolean(value.pinned), title_bn: titleBn.slice(0,180), title_en: cleanText(value.title_en).slice(0,180), body_bn: bodyBn.slice(0,2000), body_en: cleanText(value.body_en).slice(0,2000), file: cleanText(value.file).slice(0,500) };
-  };
-  const sortNotices = () => notices.sort((a,b) => Number(b.pinned)-Number(a.pinned) || b.date.localeCompare(a.date));
-  const say = (text, error=false) => { const s=$("status"); s.textContent=text; s.className="status"+(error?" error":""); };
-  const saveDraft = () => { localStorage.setItem(STORAGE_KEY, JSON.stringify(notices)); };
-  const resetForm = () => { form.reset(); $("noticeId").value=""; $("date").value=today(); $("formTitle").textContent="নতুন নোটিশ"; $("deleteNotice").hidden=true; };
-  function renderList(){
-    const list=$("noticeList"); list.replaceChildren(); sortNotices(); $("noticeTotal").textContent=notices.length;
-    if(!notices.length){ const p=document.createElement("p");p.textContent="এখনও কোনও নোটিশ নেই।";list.append(p);return; }
-    notices.forEach((n,index) => { const b=document.createElement("button"); b.type="button"; b.className="notice-entry"; const title=document.createElement("b"); title.textContent=(n.pinned?"★ ":"")+n.title_bn; const meta=document.createElement("small");meta.textContent=`${n.date} · ${n.category}`; b.append(title,meta); b.addEventListener("click",()=>loadNotice(index));list.append(b); });
-  }
-  function loadNotice(index){ const n=notices[index]; $("noticeId").value=index; $("date").value=n.date; $("category").value=n.category; $("pinned").checked=n.pinned; $("titleBn").value=n.title_bn; $("titleEn").value=n.title_en; $("bodyBn").value=n.body_bn; $("bodyEn").value=n.body_en; $("file").value=n.file; $("formTitle").textContent="নোটিশ সম্পাদনা"; $("deleteNotice").hidden=false; say("নোটিশটি সম্পাদনার জন্য খোলা হয়েছে।"); }
-  function readForm(){ return safeNotice({date:$("date").value,category:$("category").value,pinned:$("pinned").checked,title_bn:$("titleBn").value,title_en:$("titleEn").value,body_bn:$("bodyBn").value,body_en:$("bodyEn").value,file:$("file").value}); }
-  form.addEventListener("submit", event => { event.preventDefault(); const item=readForm(); if(!item){say("বাংলা শিরোনাম ও বিবরণ আবশ্যক।",true);return;} const id=$("noticeId").value; if(id === "") notices.push(item); else notices[Number(id)]=item; saveDraft();renderList();resetForm();say("খসড়ায় সংরক্ষণ হয়েছে। প্রকাশ করতে notices.json ডাউনলোড করুন।"); });
-  $("newNotice").addEventListener("click",resetForm); $("resetForm").addEventListener("click",resetForm);
-  $("deleteNotice").addEventListener("click",()=>{ const id=$("noticeId").value; if(id!==""&&confirm("এই নোটিশটি খসড়া থেকে মুছবেন?")){notices.splice(Number(id),1);saveDraft();renderList();resetForm();say("নোটিশটি খসড়া থেকে মুছে ফেলা হয়েছে। প্রকাশ করতে নতুন notices.json ডাউনলোড করুন।");} });
-  $("clearDraft").addEventListener("click",()=>{ if(confirm("সব লোকাল খসড়া মুছে ফেলবেন?")){notices=[];localStorage.removeItem(STORAGE_KEY);renderList();resetForm();say("লোকাল খসড়া মুছে ফেলা হয়েছে।");} });
-  $("downloadJson").addEventListener("click",()=>{ sortNotices(); const blob=new Blob([JSON.stringify(notices,null,2)+"\n"],{type:"application/json"}); const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="notices.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),0);say("notices.json ডাউনলোড হয়েছে। এবার GitHub-এ পুরনো ফাইলটি Replace করে Commit করুন।"); });
-  $("importJson").addEventListener("change", async event=>{ const file=event.target.files[0];if(!file)return;try{const parsed=JSON.parse(await file.text());if(!Array.isArray(parsed))throw new Error();const valid=parsed.map(safeNotice).filter(Boolean);if(valid.length!==parsed.length)throw new Error();notices=valid;saveDraft();renderList();resetForm();say(`${notices.length}টি নোটিশ আমদানি হয়েছে।`);}catch{say("সঠিক notices.json ফাইল নির্বাচন করুন।",true);}event.target.value=""; });
-  async function initialize(){
-    try { const saved=localStorage.getItem(STORAGE_KEY); if(saved){const parsed=JSON.parse(saved);notices=Array.isArray(parsed)?parsed.map(safeNotice).filter(Boolean):[];say("আপনার আগের লোকাল খসড়া খোলা হয়েছে।");} else { const response=await fetch("notices.json",{cache:"no-store"}); if(!response.ok)throw new Error(); const parsed=await response.json(); notices=Array.isArray(parsed)?parsed.map(safeNotice).filter(Boolean):[];say("বর্তমান notices.json লোড হয়েছে।"); } }
-    catch { notices=[];say("বর্তমান notices.json লোড হয়নি। প্রয়োজন হলে JSON আমদানি করুন।",true); }
-    renderList();resetForm();
-  }
-  initialize();
-})();
+const $=id=>document.getElementById(id);let notices=[];let apiUrl="";let token="";
+function status(t){$('status').textContent=t}
+function jsonp(url){return new Promise((resolve,reject)=>{const cb='gourAdminCb'+Date.now();const s=document.createElement('script');const timer=setTimeout(()=>{cleanup();reject(Error('সময় শেষ'));},15000);function cleanup(){clearTimeout(timer);delete window[cb];s.remove()}window[cb]=d=>{cleanup();resolve(d)};s.onerror=()=>{cleanup();reject(Error('Backend সংযোগ হয়নি'))};s.src=url+(url.includes('?')?'&':'?')+'action=notices&callback='+cb;document.head.appendChild(s)})}
+function getConfig(){apiUrl=$('api').value.trim();token=$('token').value.trim();if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(apiUrl))throw Error('সঠিক Apps Script /exec URL দিন');if(!token)throw Error('Admin Token দিন')}
+async function load(){getConfig();status('নোটিশ লোড হচ্ছে…');const d=await jsonp(apiUrl);if(!d||!Array.isArray(d.notices))throw Error(d?.error||'তথ্য পাওয়া যায়নি');notices=d.notices;render();status('সংযুক্ত। মোট '+notices.length+'টি নোটিশ।')}
+function render(){const host=$('list');host.innerHTML='';if(!notices.length){host.textContent='কোনও নোটিশ নেই।';return}notices.forEach((n,i)=>{const box=document.createElement('article');box.className='notice';const h=document.createElement('b');h.textContent=(n.title_bn||n.title_en||'শিরোনামহীন')+' — '+(n.date||'');const p=document.createElement('p');p.textContent=n.body_bn||n.body_en||'';const e=document.createElement('button');e.textContent='Edit';e.onclick=()=>edit(i);const d=document.createElement('button');d.textContent='Delete';d.className='secondary';d.onclick=()=>{if(confirm('এই নোটিশ মুছবেন?')){notices.splice(i,1);render();publish('নোটিশ মুছে ফেলার পরিবর্তন');}};box.append(h,p,e,d);host.append(box)})}
+function reset(){ $('noticeForm').reset();$('editId').value='';$('date').value=new Date().toISOString().slice(0,10);$('formHeading').textContent='নতুন নোটিশ'}
+function edit(i){const n=notices[i];$('editId').value=i;$('date').value=n.date||'';$('category').value=n.category||'general';$('title_bn').value=n.title_bn||'';$('body_bn').value=n.body_bn||'';$('title_en').value=n.title_en||'';$('body_en').value=n.body_en||'';$('file').value=n.file||'';$('pinned').checked=!!n.pinned;$('formHeading').textContent='নোটিশ সম্পাদনা';window.scrollTo({top:0,behavior:'smooth'})}
+function postForm(action){return new Promise((resolve,reject)=>{const frame=$('gasResult');const form=document.createElement('form');form.method='POST';form.action=apiUrl;form.target='gasResult';[['action',action],['token',token],['notices',JSON.stringify(notices)]].forEach(([k,v])=>{const x=document.createElement('input');x.type='hidden';x.name=k;x.value=v;form.appendChild(x)});let done=false;const timer=setTimeout(()=>{if(!done){done=true;cleanup();reject(Error('Backend response timeout. Sheet-এ পরিবর্তন হয়েছে কি না Refresh করে দেখুন।'))}},20000);function cleanup(){clearTimeout(timer);window.removeEventListener('message',onMsg);form.remove()}function onMsg(ev){if(ev.data&&ev.data.type==='GOUR_NOTICE_RESULT'){done=true;cleanup();ev.data.ok?resolve(ev.data.message):reject(Error(ev.data.message||'Save failed'))}}window.addEventListener('message',onMsg);document.body.appendChild(form);form.submit();})}
+async function publish(msg){try{getConfig();status('প্রকাশ করা হচ্ছে…');const result=await postForm('save');status(result||'সফলভাবে প্রকাশিত');await load()}catch(e){status('সমস্যা: '+e.message);alert(e.message)}}
+$('connect').onclick=()=>load().catch(e=>status('সমস্যা: '+e.message));$('refresh').onclick=()=>load().catch(e=>status('সমস্যা: '+e.message));$('reset').onclick=reset;$('noticeForm').onsubmit=e=>{e.preventDefault();const item={id:$('editId').value===''?('n'+Date.now()):notices[Number($('editId').value)].id,date:$('date').value,category:$('category').value,title_bn:$('title_bn').value.trim(),body_bn:$('body_bn').value.trim(),title_en:$('title_en').value.trim(),body_en:$('body_en').value.trim(),file:$('file').value.trim(),pinned:$('pinned').checked};if(!item.title_bn||!item.body_bn)return alert('বাংলা শিরোনাম ও বিবরণ দিন');const i=$('editId').value;if(i==='')notices.unshift(item);else notices[Number(i)]=item;reset();render();publish('নোটিশ প্রকাশিত');};reset();
