@@ -1,60 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Gour Shikshaniketan - A Bengali Medium School, Nursery to Class IV.">
+
 <title>Gour Shikshaniketan | Official Website</title>
+<meta name="description" content="Gour Shikshaniketan, Gobindapur, Hooghly. A Bengali Medium Primary School.">
 
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-.notice-list {
-  max-width: 850px;
-  margin: auto;
-  display: grid;
-  gap: 15px;
-}
-
-.notice-item {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  border-left: 5px solid #078b91;
-  box-shadow: 0 4px 15px rgba(0,0,0,.06);
-}
-
-.notice-item h3 {
-  color: #12365a;
-  margin-bottom: 7px;
-  font-size: 19px;
-}
-
-.notice-item p {
-  margin: 7px 0;
-}
-
-.notice-date {
-  color: #68788a;
-  font-size: 13px;
-}
-
-.notice-download {
-  display: inline-block;
-  background: #12365a;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.notice-empty {
-  text-align: center;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  color: #68788a;
-}
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -63,8 +17,8 @@
   --teal: #078b91;
   --gold: #f5b942;
   --light: #f3f7fc;
-  --white: #ffffff;
   --text: #29384a;
+  --white: #ffffff;
 }
 
 * {
@@ -75,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 85px;
 }
 
 body {
@@ -92,34 +47,33 @@ a {
   background: var(--navy);
   color: white;
   text-align: center;
-  padding: 7px;
+  padding: 8px 12px;
   font-size: 13px;
 }
 
 header {
   background: white;
-  padding: 17px 6%;
+  padding: 15px 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  flex-wrap: wrap;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 }
 
 .logo {
-  width: 76px;
-  height: 76px;
-  background: white;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  overflow: hidden;
+  width: 82px;
+  height: 82px;
   flex-shrink: 0;
+  background: white;
+  border: 2px solid #e4eaf2;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .logo img {
@@ -129,15 +83,15 @@ header {
 }
 
 .brand h1 {
-  color: var(--navy);
   font-family: Poppins, sans-serif;
-  font-size: 19px;
-  line-height: 1.3;
+  color: var(--navy);
+  font-size: 21px;
+  line-height: 1.4;
 }
 
 .brand p {
-  font-size: 12px;
-  color: #66778b;
+  color: #68788a;
+  font-size: 13px;
 }
 
 nav {
@@ -160,10 +114,8 @@ nav a:hover {
 }
 
 .hero {
-  min-height: 420px;
-  background:
-    linear-gradient(90deg, rgba(10,35,65,.94), rgba(10,35,65,.60)),
-    linear-gradient(135deg, #1769aa, #078b91);
+  min-height: 430px;
+  background: linear-gradient(120deg, #102c50, #087e91);
   display: flex;
   align-items: center;
   padding: 65px 8%;
@@ -174,24 +126,22 @@ nav a:hover {
   max-width: 720px;
 }
 
-.hero .tag {
+.hero-tag {
   color: var(--gold);
   font-weight: 700;
   letter-spacing: 2px;
-  font-size: 13px;
 }
 
 .hero h2 {
   font-family: Poppins, sans-serif;
-  font-size: clamp(30px, 5vw, 52px);
-  line-height: 1.25;
-  margin: 17px 0;
+  font-size: clamp(30px, 5vw, 49px);
+  line-height: 1.3;
+  margin: 18px 0;
 }
 
 .hero p {
-  font-size: 18px;
-  max-width: 600px;
-  color: #e2edf8;
+  font-size: 19px;
+  color: #e5f1fa;
 }
 
 .btn {
@@ -199,7 +149,7 @@ nav a:hover {
   background: var(--gold);
   color: var(--navy);
   padding: 12px 25px;
-  border-radius: 6px;
+  border-radius: 7px;
   font-weight: 700;
   margin-top: 25px;
 }
@@ -216,6 +166,7 @@ nav a:hover {
 .section-title span {
   color: var(--teal);
   font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .section-title h2 {
@@ -232,7 +183,11 @@ nav a:hover {
   max-width: 850px;
   margin: auto;
   text-align: center;
-  font-size: 17px;
+  font-size: 18px;
+}
+
+.about-content p {
+  margin-bottom: 12px;
 }
 
 .cards {
@@ -247,11 +202,11 @@ nav a:hover {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 5px 20px rgba(0,0,0,.06);
-  border-bottom: 3px solid var(--teal);
+  border-bottom: 4px solid var(--teal);
 }
 
-.card .icon {
-  font-size: 35px;
+.card-icon {
+  font-size: 38px;
 }
 
 .card h3 {
@@ -263,21 +218,52 @@ nav a:hover {
   background: white;
 }
 
-.notice {
-  max-width: 800px;
+.notice-list {
+  max-width: 850px;
   margin: auto;
-  background: #fff8e9;
-  border-left: 5px solid var(--gold);
+  display: grid;
+  gap: 16px;
+}
+
+.notice-item {
+  background: #f8fbff;
+  border-radius: 10px;
   padding: 20px;
-  border-radius: 8px;
+  border-left: 5px solid var(--teal);
+  box-shadow: 0 4px 15px rgba(0,0,0,.06);
 }
 
-.notice h3 {
+.notice-item h3 {
   color: var(--navy);
+  font-size: 19px;
+  margin-bottom: 5px;
 }
 
-.notice p {
-  margin-top: 7px;
+.notice-date {
+  color: #68788a;
+  font-size: 13px;
+}
+
+.notice-item p {
+  margin-top: 8px;
+}
+
+.notice-download {
+  display: inline-block;
+  background: var(--navy);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.notice-empty {
+  text-align: center;
+  background: #f8fbff;
+  padding: 30px;
+  border-radius: 10px;
+  color: #68788a;
 }
 
 .gallery {
@@ -286,11 +272,14 @@ nav a:hover {
 
 .gallery-box {
   background: white;
-  padding: 35px 15px;
+  border-radius: 12px;
+  padding: 35px;
   text-align: center;
-  border-radius: 10px;
   border: 1px dashed #aab9c9;
-  color: #65778b;
+}
+
+.gallery-box .icon {
+  font-size: 48px;
 }
 
 .admission {
@@ -300,13 +289,22 @@ nav a:hover {
 }
 
 .admission h2 {
-  font-size: 29px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  margin-bottom: 12px;
 }
 
 .contact {
   background: white;
   text-align: center;
+}
+
+.contact h3 {
+  color: var(--navy);
+  font-size: 22px;
+}
+
+.contact p {
+  margin-top: 8px;
 }
 
 footer {
@@ -324,16 +322,29 @@ footer h3 {
 
 @media(max-width:600px) {
   header {
-    justify-content: center;
-    text-align: center;
+    padding: 13px;
   }
 
-  .brand {
-    flex-direction: column;
+  .logo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .brand h1 {
+    font-size: 15px;
+  }
+
+  .brand p {
+    font-size: 11px;
   }
 
   nav {
-    gap: 12px 18px;
+    gap: 10px 17px;
+    padding: 13px 8px;
+  }
+
+  nav a {
+    font-size: 13px;
   }
 
   .hero {
@@ -344,19 +355,182 @@ footer h3 {
   .section {
     padding: 45px 6%;
   }
+
+  .section-title h2 {
+    font-size: 25px;
+  }
 }
 </style>
 </head>
 
+<body>
+
+<div class="topbar">
+  গৌর শিক্ষানিকেতন | Gobindapur, Hooghly
+</div>
+
+<header>
+  <div class="brand">
+    <div class="logo">
+      <img src="school-logo.jpeg" alt="Gour Shikshaniketan Logo">
+    </div>
+    <div>
+      <h1>GOUR SHIKSHANIKETAN</h1>
+      <p>Learning Today, Leading Tomorrow</p>
+      <p>গোবিন্দপুর, হুগলি</p>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#home">হোম</a>
+  <a href="#about">আমাদের বিদ্যালয়</a>
+  <a href="#academics">পাঠক্রম</a>
+  <a href="#notice">নোটিশ</a>
+  <a href="#gallery">গ্যালারি</a>
+  <a href="#admission">ভর্তি</a>
+  <a href="#contact">যোগাযোগ</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">WELCOME TO OUR SCHOOL</div>
+    <h2>একটি উজ্জ্বল ভবিষ্যতের সূচনা এখানেই</h2>
+    <p>
+      শিক্ষা, শৃঙ্খলা, সৃজনশীলতা ও নৈতিক মূল্যবোধের
+      মাধ্যমে প্রতিটি শিশুর সর্বাঙ্গীণ বিকাশই আমাদের লক্ষ্য।
+    </p>
+    <a class="btn" href="#about">আমাদের সম্পর্কে জানুন →</a>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="section-title">
+    <span>WHO WE ARE</span>
+    <h2>আমাদের বিদ্যালয় সম্পর্কে</h2>
+  </div>
+
+  <div class="about-content">
+    <p>
+      গৌর শিক্ষানিকেতন একটি বাংলা মাধ্যমের প্রাথমিক বিদ্যালয়।
+      Nursery থেকে Class IV পর্যন্ত শিক্ষার্থীদের মানসম্মত শিক্ষা,
+      নৈতিক মূল্যবোধ, শৃঙ্খলা এবং সৃজনশীলতার বিকাশে আমরা প্রতিশ্রুতিবদ্ধ।
+    </p>
+    <p>
+      পরিচালনায়: Gobindapur Gourhari Welfare Society
+    </p>
+    <p>
+      ঠিকানা: Gobindapur, Hooghly, West Bengal
+    </p>
+  </div>
+</section>
+
+<section class="section" id="academics">
+  <div class="section-title">
+    <span>OUR EDUCATION</span>
+    <h2>আমাদের শিক্ষাক্রম</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🧸</div>
+      <h3>নার্সারি</h3>
+      <p>খেলাধুলা ও আনন্দের মাধ্যমে প্রাথমিক শিক্ষা।</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <h3>প্রাথমিক বিভাগ</h3>
+      <p>প্রথম শ্রেণি থেকে চতুর্থ শ্রেণি পর্যন্ত শিক্ষা।</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎨</div>
+      <h3>সৃজনশীল শিক্ষা</h3>
+      <p>আঁকা, গান, সংস্কৃতি ও বিভিন্ন কার্যক্রম।</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌱</div>
+      <h3>সর্বাঙ্গীণ বিকাশ</h3>
+      <p>আত্মবিশ্বাস, শৃঙ্খলা ও নৈতিক মূল্যবোধের বিকাশ।</p>
+    </div>
+  </div>
+</section>
+
+<section class="section notice-section" id="notice">
+  <div class="section-title">
+    <span>IMPORTANT UPDATES</span>
+    <h2>📢 নোটিশ বোর্ড</h2>
+    <p>বিদ্যালয়ের সর্বশেষ বিজ্ঞপ্তি</p>
+  </div>
+
+  <div id="noticeList" class="notice-list">
+    <div class="notice-empty">নোটিশ লোড হচ্ছে...</div>
+  </div>
+</section>
+
+<section class="section gallery" id="gallery">
+  <div class="section-title">
+    <span>OUR MEMORIES</span>
+    <h2>বিদ্যালয়ের চিত্রগ্যালারি</h2>
+  </div>
+
+  <div class="gallery-box">
+    <div class="icon">📸</div>
+    <h3>আমাদের বিদ্যালয়ের কার্যক্রম</h3>
+    <p>বিদ্যালয়ের বিভিন্ন অনুষ্ঠান, সাংস্কৃতিক কার্যক্রম ও শিক্ষামূলক ছবিগুলি এখানে প্রকাশ করা হবে।</p>
+  </div>
+</section>
+
+<section class="section admission" id="admission">
+  <h2>ভর্তি সংক্রান্ত তথ্য</h2>
+  <p>
+    Nursery থেকে Class IV পর্যন্ত ভর্তি সংক্রান্ত
+    তথ্যের জন্য বিদ্যালয়ের অফিসে যোগাযোগ করুন।
+  </p>
+  <a class="btn" href="#contact">যোগাযোগ করুন</a>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="section-title">
+    <span>GET IN TOUCH</span>
+    <h2>যোগাযোগ</h2>
+  </div>
+
+  <h3>GOUR SHIKSHANIKETAN</h3>
+  <p>Gobindapur, Hooghly, West Bengal</p>
+  <p>পরিচালনায়: Gobindapur Gourhari Welfare Society</p>
+  <p>ভর্তি ও বিদ্যালয় সংক্রান্ত তথ্যের জন্য বিদ্যালয় অফিসে যোগাযোগ করুন।</p>
+</section>
+
+<footer>
+  <h3>GOUR SHIKSHANIKETAN</h3>
+  <p>Learning Today, Leading Tomorrow</p>
+  <p>Gobindapur, Hooghly</p>
+  <p>© 2026 Gour Shikshaniketan. All Rights Reserved.</p>
+</footer>
+
 <script>
 
+// ====================================
+// SCHOOL NOTICE MANAGEMENT
+// নতুন নোটিশ এখানে যোগ করবেন
+// ====================================
+
 const notices = [
-  // নতুন নোটিশ এখানে যোগ করবেন
+  // নমুনা:
+  // {
+  //   title: "বার্ষিক পরীক্ষার বিজ্ঞপ্তি",
+  //   date: "25/11/2026",
+  //   description: "বার্ষিক পরীক্ষার সময়সূচি প্রকাশ করা হয়েছে।",
+  //   file: "annual-exam.pdf"
+  // }
 ];
 
-const noticeList = document.getElementById("noticeList");
-
 function showNotices() {
+
+  const noticeList = document.getElementById("noticeList");
 
   noticeList.innerHTML = "";
 
@@ -368,31 +542,35 @@ function showNotices() {
     return;
   }
 
-  notices.forEach(notice => {
+  notices.forEach(function(notice) {
 
     const card = document.createElement("div");
     card.className = "notice-item";
 
-    const heading = document.createElement("h3");
-    heading.textContent = "📌 " + notice.title;
+    const title = document.createElement("h3");
+    title.textContent = "📌 " + notice.title;
 
-    const date = document.createElement("p");
+    const date = document.createElement("div");
     date.className = "notice-date";
     date.textContent = "প্রকাশের তারিখ: " + notice.date;
 
     const description = document.createElement("p");
     description.textContent = notice.description;
 
-    card.appendChild(heading);
+    card.appendChild(title);
     card.appendChild(date);
     card.appendChild(description);
 
     if (notice.file) {
+
       const link = document.createElement("a");
+
       link.className = "notice-download";
       link.href = notice.file;
-      link.textContent = "📄 PDF Download";
-      link.setAttribute("download", "");
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = "📄 PDF দেখুন / Download";
+
       card.appendChild(link);
     }
 
@@ -405,163 +583,5 @@ showNotices();
 
 </script>
 
-<body>
-
-<div class="topbar">
-Welcome to Gour Shikshaniketan | Nursery to Class IV
-</div>
-
-<header>
-  <div class="brand">
-    <div class="logo">
-  <img src="school-logo.png" alt="Gour Shikshaniketan Logo">
-    <div>
-      <h1>GOUR SHIKSHANIKETAN</h1>
-      <p>Learning Today, Leading Tomorrow</p>
-    </div>
-  </div>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#academics">Academics</a>
-  <a href="#notice">Notice</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#admission">Admission</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="tag">WELCOME TO OUR SCHOOL</div>
-    <h2>A Bright Future Begins Here</h2>
-    <p>
-      শিশুর শিক্ষা, শৃঙ্খলা, সৃজনশীলতা ও
-      সর্বাঙ্গীণ বিকাশের এক সুন্দর শিক্ষাঙ্গন।
-    </p>
-    <a class="btn" href="#about">Explore Our School →</a>
-  </div>
-</section>
-
-<section class="section about" id="about">
-  <div class="section-title">
-    <span>WHO WE ARE</span>
-    <h2>About Our School</h2>
-  </div>
-  <div class="about-content">
-    <p>
-      Gour Shikshaniketan একটি বাংলা মাধ্যমের
-      প্রাথমিক বিদ্যালয়। Nursery থেকে Class IV
-      পর্যন্ত শিক্ষার্থীদের মানসম্মত শিক্ষা,
-      নৈতিক মূল্যবোধ, শৃঙ্খলা এবং সৃজনশীলতার
-      বিকাশে আমরা প্রতিশ্রুতিবদ্ধ।
-    </p>
-    <p>
-      Managed by Gobindapur Gourhari Welfare Society.
-    </p>
-  </div>
-</section>
-
-<section class="section" id="academics">
-  <div class="section-title">
-    <span>OUR EDUCATION</span>
-    <h2>Academic Programmes</h2>
-  </div>
-
-  <div class="cards">
-    <div class="card">
-      <div class="icon">🧸</div>
-      <h3>Nursery</h3>
-      <p>Learning through fun and activities.</p>
-    </div>
-    <div class="card">
-      <div class="icon">📚</div>
-      <h3>Primary Classes</h3>
-      <p>Class I to Class IV.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🎨</div>
-      <h3>Creative Learning</h3>
-      <p>Art, culture and practical activities.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🌱</div>
-      <h3>Holistic Growth</h3>
-      <p>Building confidence and good values.</p>
-    </div>
-  </div>
-</section>
-
-
-<section class="section notice-section" id="notice">
-
-  <div class="section-title">
-    <span>IMPORTANT UPDATES</span>
-    <h2>📢 নোটিশ বোর্ড</h2>
-    <p>বিদ্যালয়ের সর্বশেষ বিজ্ঞপ্তি</p>
-  </div>
-
-  <div id="noticeList" class="notice-list">
-    <p>নোটিশ লোড হচ্ছে...</p>
-  </div>
-
-</section>
-
-  <div class="section-title">
-    <span>STAY UPDATED</span>
-    <h2>Notice Board</h2>
-  </div>
-
-  <div class="notice">
-    <h3>📢 School Notice Board</h3>
-    <p>
-      বিদ্যালয়ের সমস্ত গুরুত্বপূর্ণ নোটিশ,
-      পরীক্ষা, ছুটি ও অন্যান্য বিজ্ঞপ্তি
-      এখানে প্রকাশ করা হবে।
-    </p>
-  </div>
-</section>
-
-<section class="section gallery" id="gallery">
-  <div class="section-title">
-    <span>OUR MEMORIES</span>
-    <h2>School Gallery</h2>
-  </div>
-
-  <div class="gallery-box">
-    <div style="font-size:45px">📸</div>
-    <h3>Our School Activities</h3>
-    <p>School photographs and event memories will be added here.</p>
-  </div>
-</section>
-
-<section class="section admission" id="admission">
-  <h2>Admission Information</h2>
-  <p>
-    Nursery থেকে Class IV পর্যন্ত ভর্তি সংক্রান্ত
-    তথ্যের জন্য বিদ্যালয়ের অফিসে যোগাযোগ করুন।
-  </p>
-  <a class="btn" href="#contact">Contact School</a>
-</section>
-
-<section class="section contact" id="contact">
-  <div class="section-title">
-    <span>GET IN TOUCH</span>
-    <h2>Contact Us</h2>
-  </div>
-
-  <h3>GOUR SHIKSHANIKETAN</h3>
-  <p>Managed by Gobindapur Gourhari Welfare Society</p>
-  <p>For admission and school information, contact the school office.</p>
-</section>
-
-<footer>
-  <h3>GOUR SHIKSHANIKETAN</h3>
-  <p>Learning Today, Leading Tomorrow</p>
-  <p>© 2026 Gour Shikshaniketan. All Rights Reserved.</p>
-</footer>
-
 </body>
 </html>
-
