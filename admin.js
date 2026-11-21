@@ -94,6 +94,7 @@ function edit(i) {
   $("title_en").value = n.title_en || "";
   $("body_en").value = n.body_en || "";
   $("file").value = n.file || "";
+  $("image").value = n.image || "";
   $("pinned").checked = !!n.pinned;
   $("formHeading").textContent = "নোটিশ সম্পাদনা";
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -193,6 +194,7 @@ async function saveNotice() {
       title_en: $("title_en").value.trim(),
       body_en: $("body_en").value.trim(),
       file: $("file").value.trim(),
+      image: $("image").value.trim(),
       pinned: $("pinned").checked
     };
 
