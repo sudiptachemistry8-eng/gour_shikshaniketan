@@ -1,1 +1,444 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gour Shikshaniketan - A Bengali Medium School, Nursery to Class IV.">
+<title>Gour Shikshaniketan | Official Website</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #12365a;
+  --blue: #1769aa;
+  --teal: #078b91;
+  --gold: #f5b942;
+  --light: #f3f7fc;
+  --white: #ffffff;
+  --text: #29384a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Hind Siliguri', sans-serif;
+  color: var(--text);
+  background: var(--light);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+}
+
+.topbar {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 7px;
+  font-size: 13px;
+}
+
+header {
+  background: white;
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 58px;
+  width: 58px;
+  border-radius: 50%;
+  background: #e9f2fc;
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+  font-size: 28px;
+  border: 2px solid var(--gold);
+}
+
+.brand h1 {
+  color: var(--navy);
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.brand p {
+  font-size: 12px;
+  color: #66778b;
+}
+
+nav {
+  background: var(--navy);
+  padding: 12px 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 420px;
+  background:
+    linear-gradient(90deg, rgba(10,35,65,.94), rgba(10,35,65,.60)),
+    linear-gradient(135deg, #1769aa, #078b91);
+  display: flex;
+  align-items: center;
+  padding: 65px 8%;
+  color: white;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero .tag {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.hero h2 {
+  font-family: Poppins, sans-serif;
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.25;
+  margin: 17px 0;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  color: #e2edf8;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.section {
+  padding: 65px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title span {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.section-title h2 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.about {
+  background: white;
+}
+
+.about-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  font-size: 17px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 28px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,.06);
+  border-bottom: 3px solid var(--teal);
+}
+
+.card .icon {
+  font-size: 35px;
+}
+
+.card h3 {
+  color: var(--navy);
+  margin: 10px 0;
+}
+
+.notice-section {
+  background: white;
+}
+
+.notice {
+  max-width: 800px;
+  margin: auto;
+  background: #fff8e9;
+  border-left: 5px solid var(--gold);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.notice h3 {
+  color: var(--navy);
+}
+
+.notice p {
+  margin-top: 7px;
+}
+
+.gallery {
+  background: var(--light);
+}
+
+.gallery-box {
+  background: white;
+  padding: 35px 15px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px dashed #aab9c9;
+  color: #65778b;
+}
+
+.admission {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+}
+
+.admission h2 {
+  font-size: 29px;
+  margin-bottom: 10px;
+}
+
+.contact {
+  background: white;
+  text-align: center;
+}
+
+footer {
+  background: #0b233d;
+  color: #dce7f2;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 14px;
+}
+
+footer h3 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+@media(max-width:600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand {
+    flex-direction: column;
+  }
+
+  nav {
+    gap: 12px 18px;
+  }
+
+  .hero {
+    min-height: 350px;
+    padding: 45px 7%;
+  }
+
+  .section {
+    padding: 45px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+Welcome to Gour Shikshaniketan | Nursery to Class IV
+</div>
+
+<header>
+  <div class="brand">
+    <div class="logo">🎓</div>
+    <div>
+      <h1>GOUR SHIKSHANIKETAN</h1>
+      <p>Learning Today, Leading Tomorrow</p>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#academics">Academics</a>
+  <a href="#notice">Notice</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#admission">Admission</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">WELCOME TO OUR SCHOOL</div>
+    <h2>A Bright Future Begins Here</h2>
+    <p>
+      শিশুর শিক্ষা, শৃঙ্খলা, সৃজনশীলতা ও
+      সর্বাঙ্গীণ বিকাশের এক সুন্দর শিক্ষাঙ্গন।
+    </p>
+    <a class="btn" href="#about">Explore Our School →</a>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="section-title">
+    <span>WHO WE ARE</span>
+    <h2>About Our School</h2>
+  </div>
+  <div class="about-content">
+    <p>
+      Gour Shikshaniketan একটি বাংলা মাধ্যমের
+      প্রাথমিক বিদ্যালয়। Nursery থেকে Class IV
+      পর্যন্ত শিক্ষার্থীদের মানসম্মত শিক্ষা,
+      নৈতিক মূল্যবোধ, শৃঙ্খলা এবং সৃজনশীলতার
+      বিকাশে আমরা প্রতিশ্রুতিবদ্ধ।
+    </p>
+    <p>
+      Managed by Gobindapur Gourhari Welfare Society.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="academics">
+  <div class="section-title">
+    <span>OUR EDUCATION</span>
+    <h2>Academic Programmes</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🧸</div>
+      <h3>Nursery</h3>
+      <p>Learning through fun and activities.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📚</div>
+      <h3>Primary Classes</h3>
+      <p>Class I to Class IV.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎨</div>
+      <h3>Creative Learning</h3>
+      <p>Art, culture and practical activities.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🌱</div>
+      <h3>Holistic Growth</h3>
+      <p>Building confidence and good values.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section notice-section" id="notice">
+  <div class="section-title">
+    <span>STAY UPDATED</span>
+    <h2>Notice Board</h2>
+  </div>
+
+  <div class="notice">
+    <h3>📢 School Notice Board</h3>
+    <p>
+      বিদ্যালয়ের সমস্ত গুরুত্বপূর্ণ নোটিশ,
+      পরীক্ষা, ছুটি ও অন্যান্য বিজ্ঞপ্তি
+      এখানে প্রকাশ করা হবে।
+    </p>
+  </div>
+</section>
+
+<section class="section gallery" id="gallery">
+  <div class="section-title">
+    <span>OUR MEMORIES</span>
+    <h2>School Gallery</h2>
+  </div>
+
+  <div class="gallery-box">
+    <div style="font-size:45px">📸</div>
+    <h3>Our School Activities</h3>
+    <p>School photographs and event memories will be added here.</p>
+  </div>
+</section>
+
+<section class="section admission" id="admission">
+  <h2>Admission Information</h2>
+  <p>
+    Nursery থেকে Class IV পর্যন্ত ভর্তি সংক্রান্ত
+    তথ্যের জন্য বিদ্যালয়ের অফিসে যোগাযোগ করুন।
+  </p>
+  <a class="btn" href="#contact">Contact School</a>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="section-title">
+    <span>GET IN TOUCH</span>
+    <h2>Contact Us</h2>
+  </div>
+
+  <h3>GOUR SHIKSHANIKETAN</h3>
+  <p>Managed by Gobindapur Gourhari Welfare Society</p>
+  <p>For admission and school information, contact the school office.</p>
+</section>
+
+<footer>
+  <h3>GOUR SHIKSHANIKETAN</h3>
+  <p>Learning Today, Leading Tomorrow</p>
+  <p>© 2026 Gour Shikshaniketan. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
+
